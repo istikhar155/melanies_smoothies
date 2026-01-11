@@ -15,7 +15,7 @@ st.write(
 #    ("Email", "Home phone", "Mobile phone"),
 #)
 
-#name_of_order=st.text_input('Name of Smoothie')
+name_of_order=st.text_input('Name of Smoothie')
 #st.write('The name on your smoothie will be ', name_of_order)
 
 cnx=st.connection("snowflake")
