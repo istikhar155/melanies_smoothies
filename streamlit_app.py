@@ -50,7 +50,8 @@ if ingredients_list:
 # # Get the current credentials
 # session = get_active_session()
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response.json())
+#st.text(smoothiefroot_response.json())
+sf_df=st.dataframe(data=smoothiefroot_response.json(), user_container_width=True)
 # # Use an interactive slider to get user input
 # hifives_val = st.slider(
 #   "Number of high-fives in Q3",
