@@ -2,8 +2,7 @@
 import streamlit as st
 #from snowflake.snowpark.context import get_active_session
 import requests
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response)
+
 # Write directly to the app
 #st.title(":cup_with_straw: Customize Your Smoothies! :cup_with_straw:")
 st.title("My Parents new Healthy Diner")
@@ -50,7 +49,8 @@ if ingredients_list:
         st.success('Your Smoothie is ordered, '+ name_of_order, icon="✅")
 # # Get the current credentials
 # session = get_active_session()
-
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response.json())
 # # Use an interactive slider to get user input
 # hifives_val = st.slider(
 #   "Number of high-fives in Q3",
