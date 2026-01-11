@@ -30,7 +30,7 @@ from snowflake.snowpark.functions import col
 #my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'), col('SEARCH_ON'))
 #st.dataframe(data=my_dataframe, use_container_width=True)
-$st.stop()
+#st.stop()
 pd_df=my_dataframe.to_pandas()
 st.dataframe(pd_df)
 st.stop()
