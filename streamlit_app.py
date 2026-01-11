@@ -1,6 +1,6 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+#from snowflake.snowpark.context import get_active_session
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothies! :cup_with_straw:")
@@ -16,6 +16,8 @@ st.write(
 name_of_order=st.text_input('Name of Smoothie')
 st.write('The name on your smoothie will be ', name_of_order)
 
+cnx=st.connect("snowflake")
+session = cnx.session()
 
 title=st.text_input('Movie Title', 'Life of Brian')
 st.write('The current Movie title is', title)
