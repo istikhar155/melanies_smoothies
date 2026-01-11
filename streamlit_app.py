@@ -28,9 +28,11 @@ session = cnx.session()
 from snowflake.snowpark.functions import col
 #session = get_active_session()
 #my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'), col('SEARCH_ON'))
+st.dataframe(data=my_dataframe, use_container_width=True)
+st.stop()
 
-#st.dataframe(data=my_dataframe, use_container_width=True)
+#my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
 #my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
 ingredients_list=st.multiselect('Choose upto 5 ingredients', my_dataframe, max_selections=5)
 if ingredients_list:
