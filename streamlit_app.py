@@ -17,7 +17,7 @@ st.write(
 name_of_order=st.text_input('Name of Smoothie')
 st.write('The name on your smoothie will be ', name_of_order)
 
-cnx=st.connect("snowflake")
+cnx=st.connection("snowflake")
 session = cnx.session()
 
 title=st.text_input('Movie Title', 'Life of Brian')
