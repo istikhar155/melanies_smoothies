@@ -16,7 +16,7 @@ st.write(
 #)
 
 name_of_order=st.text_input('Name of Smoothie')
-#st.write('The name on your smoothie will be ', name_of_order)
+st.write('The name on your smoothie will be ', name_of_order)
 
 cnx=st.connection("snowflake")
 session = cnx.session()
@@ -39,6 +39,8 @@ if ingredients_list:
     ingredients_string=''
     for fruit_chosen in ingredients_list:
         ingredients_string+=fruit_chosen + ' '
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+        sf_df=st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
     #st.write(ingredients_string)
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,NAME_ON_ORDER )
             values ('""" + ingredients_string + """', '""" + name_of_order + """')"""
@@ -49,9 +51,9 @@ if ingredients_list:
         st.success('Your Smoothie is ordered, '+ name_of_order, icon="✅")
 # # Get the current credentials
 # session = get_active_session()
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+
 #st.text(smoothiefroot_response.json())
-sf_df=st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+
 # # Use an interactive slider to get user input
 # hifives_val = st.slider(
 #   "Number of high-fives in Q3",
