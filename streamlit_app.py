@@ -25,7 +25,7 @@ st.write('The current Movie title is', title)
 
 #st.write("You selected:", option)
 from snowflake.snowpark.functions import col
-session = get_active_session()
+#session = get_active_session()
 #my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 
