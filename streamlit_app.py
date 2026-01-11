@@ -22,8 +22,8 @@ st.write(
 cnx=st.connection("snowflake")
 session = cnx.session()
 
-title=st.text_input('Movie Title', 'Life of Brian')
-st.write('The current Movie title is', title)
+#title=st.text_input('Movie Title', 'Life of Brian')
+#st.write('The current Movie title is', title)
 
 #st.write("You selected:", option)
 from snowflake.snowpark.functions import col
